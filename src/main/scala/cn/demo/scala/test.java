@@ -7,7 +7,7 @@ package cn.demo.scala;
 public class test {
     public static void main( String[] args )
     {
-        testScala testScala = new testScala();
+        TestScala testScala = new TestScala();
         testScala.main(args);
     }
 }

@@ -1,18 +1,12 @@
 package cn.demo.scala
 
-class testScala {
+class Demo {
   def main(args: Array[String]): Unit = {
-    println("Hello Scala World:"+demo(5,4));
-    print("我是打印函数");
-    println("5阶乘："+factorial(4))
-    timePrint(time());
-    println("可变参数加法测试："+params(1,4,5))
-    println("可变参数加法测试："+params(1,4))
 
-    stringMethod("hello world");
-    stringMethod("中国共产党万岁");
+    System.out.println(closure(2));
   }
-  //加法
+
+  //加法， //返回值Unit==void
   def add(a:Int,b:Int):Int={
     a+b;
   }
@@ -51,4 +45,12 @@ class testScala {
   def stringMethod(s:String)={
     println("第2个字符是："+s.charAt(1))
   }
+  //闭包
+  var fator=3;//自由变量
+  val closure=(a:Int)=> a*fator;
+
+  //数组
+  var ayyay1:Array[String]=new Array[String](2);
+  var array2=Array("张三","李四","王老五");
+
 }
