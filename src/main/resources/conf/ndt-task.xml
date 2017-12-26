@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--<bean id="messageTask" class="com.ndt.service.message.MessageTaskImpl"/>-->
+
+    <!--<bean id="simpleJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+        <!--<property name="targetObject" ref="messageTask" />-->
+        <!--<property name="targetMethod" value="handleMessagesTask" />-->
+    <!--</bean>-->
+
+    <!--<bean id="cronTrigger"  class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">-->
+        <!--<property name="jobDetail" ref="simpleJobDetail" />-->
+        <!--<property name="cronExpression" value="0 0/10 * * * ?" />-->
+    <!--</bean>-->
+
+    <!--<bean  class="org.springframework.scheduling.quartz.SchedulerFactoryBean">-->
+        <!--<property name="jobDetails">-->
+            <!--<list>-->
+                <!--<ref bean="simpleJobDetail" />-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="triggers">-->
+            <!--<list>-->
+                <!--<ref bean="cronTrigger" />-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+</beans>

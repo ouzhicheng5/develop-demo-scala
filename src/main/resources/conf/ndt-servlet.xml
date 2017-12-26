@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <mvc:default-servlet-handler/>
+
+    <context:component-scan base-package="cn.demo"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"></property>
+        <property name="maxUploadSize" value="1048576000"></property>
+    </bean>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8"/>
+            </bean>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes" value="application/json;charset=UTF-8"/>
+                <property name="features">
+                    <array>
+                        <value>WriteMapNullValue</value>
+                        <value>WriteNullStringAsEmpty</value>
+                        <value>WriteDateUseDateFormat</value>
+                    </array>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!--<mvc:interceptors>
+        &lt;!&ndash; 设置Access-Control-Allow-Origin头，实现跨域访问 &ndash;&gt;
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="cn.demo.controller.interceptor.JsonAccessInterceptor"/>
+        </mvc:interceptor>
+        &lt;!&ndash;权限验证&ndash;&gt;
+        <mvc:interceptor>
+            <mvc:mapping path="/v1/**"/>
+            <mvc:exclude-mapping path="/v1/login"/>
+            <mvc:exclude-mapping path="/v1/wxAppLogin/**"/>
+            <bean class="cn.demo.controller.interceptor.JwtInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>-->
+
+    <!--<mvc:resources mapping="/css/**" location="/css/"/>-->
+    <!--<mvc:resources mapping="/*.html" location="/html/"/>-->
+
+</beans>

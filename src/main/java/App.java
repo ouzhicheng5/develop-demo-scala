@@ -1,4 +1,4 @@
-package cn.demo.scala;
+package cn.demo;
 
 /**
  * Hello world!
